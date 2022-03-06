@@ -8,23 +8,73 @@ public class Polinomio extends ListaDoble{
 
     }
 
-    /*public Polinomio suma (Polinomio a) {
-        Polinomio nuevoPolinomio;
-        NodoDoble actual = this.inicio;
-        NodoDoble auxiliarA = this.inicio;
-        NodoDoble actualA = a.inicio;
-        while (!actual.equals(null) && !actualA.equals(null)){
-            if (!actual.equals(null) && !actualA.equals(null)){
-                
+    public Polinomio suma (Polinomio a) {
+        Polinomio nuevoPolinomio = new Polinomio();
+        int flag=0;
+        for (int i=6; i>=0; i--){
+            NodoDoble actual = this.inicio;
+            NodoDoble actualA = a.inicio;
+            Monomio nuevoMonomio = new Monomio(0, i);
+            while (actual != null && actualA != null){
+                if(actual.dato.grado == i){
+                    nuevoMonomio.setCoeficiente(nuevoMonomio.getCoeficiente()+actual.dato.getCoeficiente());
+                    flag++;
+                }else{
+                    actual=actual.siguiente;
+                }
 
-                actual=actual.siguiente;
-                actualA=actualA.siguiente;
+                if (actualA.dato.grado == i){
+                    nuevoMonomio.setCoeficiente(nuevoMonomio.getCoeficiente()+actualA.dato.getCoeficiente());
+                    flag++;
+                }else{
+                    actualA=actualA.siguiente;
+                }
+
+                if (flag==2){
+                    break;
+                }
             }
-
-
+            if (nuevoMonomio.coeficiente != 0){
+                nuevoPolinomio.insertaOrdenado(nuevoMonomio);
+            }
         }
+
         return nuevoPolinomio;
-    }*/
+    }
+
+    public Polinomio resta (Polinomio a) {
+        Polinomio nuevoPolinomio = new Polinomio();
+        int flag=0;
+        for (int i=6; i>=0; i--){
+            NodoDoble actual = this.inicio;
+            NodoDoble actualA = a.inicio;
+            Monomio nuevoMonomio = new Monomio(0, i);
+            while (actual != null && actualA != null){
+                if(actual.dato.grado == i){
+                    nuevoMonomio.setCoeficiente(nuevoMonomio.getCoeficiente()-actual.dato.getCoeficiente());
+                    flag++;
+                }else{
+                    actual=actual.siguiente;
+                }
+
+                if (actualA.dato.grado == i){
+                    nuevoMonomio.setCoeficiente(nuevoMonomio.getCoeficiente()-actualA.dato.getCoeficiente());
+                    flag++;
+                }else{
+                    actualA=actualA.siguiente;
+                }
+
+                if (flag==2){
+                    break;
+                }
+            }
+            if (nuevoMonomio.coeficiente != 0){
+                nuevoPolinomio.insertaOrdenado(nuevoMonomio);
+            }
+        }
+        
+        return nuevoPolinomio;
+    }
 
     public Polinomio multiplica (Polinomio a){
         Polinomio nuevoPolinomio = new Polinomio();
