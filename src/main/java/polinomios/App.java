@@ -9,15 +9,22 @@ import Model.Polinomio;
  */
 public class App 
 {
-    public static void main( String[] args )
-    {
+    public static void main( String[] args ){
         Polinomio a = new Polinomio();
+        Polinomio aux = new Polinomio();
         Monomio b = new Monomio(2, 2);
         Monomio c = new Monomio(4, 4);
         Monomio d = new Monomio(13, 0);
         a.insertaOrdenado(d);
         a.insertaOrdenado(b);
         a.insertaOrdenado(c);
+
+        aux.insertaOrdenado(d);
+        aux.insertaOrdenado(b);
+        aux.insertaOrdenado(c);
+        
+        aux.imprimir();
+        System.out.println();
         
         a.imprimir();
         System.out.println();
@@ -32,7 +39,7 @@ public class App
         a2.imprimir();
         System.out.println();
         Polinomio nuevo = new Polinomio();
-        nuevo = (a.suma(a2)); 
+        nuevo = (a.resta(a2)); 
         nuevo.imprimir();
         System.out.println();
         

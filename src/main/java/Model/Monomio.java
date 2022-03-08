@@ -37,7 +37,32 @@ public class Monomio {
         String c, g;
         c=String.valueOf(this.coeficiente);
         g=String.valueOf(this.grado);
-        return c + "x^" + g;
+        if (g.equals("0")){
+            return c;
+        }else{
+            if (g.equals("1")){
+                if(c.equals("1")){
+                    return "x";
+                }else{
+                    if(c.equals("-1")){
+                        return "-x";
+                    }else{
+                        return c + "x";
+                    }
+                }
+            }else{
+                if(c.equals("1")){
+                    return "x^" + g;
+                }else{
+                    if(c.equals("-1")){
+                        return "-x^" + g;
+                    }else{
+                        return c + "x^" + g;
+                    }
+                }
+            }
+        }
+        
     }
 
 }

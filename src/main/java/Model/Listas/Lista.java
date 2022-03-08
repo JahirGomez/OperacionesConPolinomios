@@ -11,7 +11,7 @@ import Model.Monomio;
  *
  * @author Jahir Gómez
  */
-public abstract class Lista {
+public abstract class Lista{
     protected Nodo inicio;
     protected Nodo ultimo;
     protected String nombre;

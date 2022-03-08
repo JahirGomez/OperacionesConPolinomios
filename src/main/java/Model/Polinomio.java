@@ -41,37 +41,32 @@ public class Polinomio extends ListaDoble{
     }
 
     public Polinomio resta (Polinomio a) {
-        Polinomio nuevoPolinomio = new Polinomio();
-        int flag=0;
-        for (int i=6; i>=0; i--){
+        int i=0;
+        NodoDoble actualA = a.inicio;
+        while (i<6 && actualA != null){
             NodoDoble actual = this.inicio;
-            NodoDoble actualA = a.inicio;
-            Monomio nuevoMonomio = new Monomio(0, i);
-            while (actual != null && actualA != null){
-                if(actual.dato.grado == i){
-                    nuevoMonomio.setCoeficiente(nuevoMonomio.getCoeficiente()-actual.dato.getCoeficiente());
+
+            int flag=0;
+            while (actual != null){
+                if(actualA.dato.getGrado() == actual.dato.getGrado()){
+                    actual.dato.setCoeficiente(actual.dato.getCoeficiente()-actualA.dato.getCoeficiente());
                     flag++;
-                }else{
-                    actual=actual.siguiente;
                 }
 
-                if (actualA.dato.grado == i){
-                    nuevoMonomio.setCoeficiente(nuevoMonomio.getCoeficiente()-actualA.dato.getCoeficiente());
-                    flag++;
-                }else{
-                    actualA=actualA.siguiente;
-                }
-
-                if (flag==2){
+                if (flag==1){
                     break;
                 }
+
+                actual=actual.siguiente;
             }
-            if (nuevoMonomio.coeficiente != 0){
-                nuevoPolinomio.insertaOrdenado(nuevoMonomio);
+            if (flag == 0){
+                Monomio nuevoMonomio = new Monomio((actualA.dato.getCoeficiente()*-1), (actualA.dato.getGrado()));
+                this.insertaOrdenado(nuevoMonomio);
             }
+            actualA=actualA.siguiente;
         }
-        
-        return nuevoPolinomio;
+
+        return this;
     }
 
     public Polinomio multiplica (Polinomio a){
