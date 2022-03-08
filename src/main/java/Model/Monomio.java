@@ -32,4 +32,12 @@ public class Monomio {
         this.grado = grado;
     }
 
+    @Override
+    public String toString (){
+        String c, g;
+        c=String.valueOf(this.coeficiente);
+        g=String.valueOf(this.grado);
+        return c + "x^" + g;
+    }
+
 }

@@ -57,6 +57,10 @@ public class NodoDoble extends Nodo{
         this.anterior = anterior;
     }
     
+    @Override
+    public Monomio getDato (){
+        return dato;
+    }
     
     
 }

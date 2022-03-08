@@ -77,7 +77,7 @@ public class ListaDoble extends ListaD{
             insertaInicio(dato);
         }else{
             if (inicio == ultimo){
-                if (dato.getCoeficiente() < inicio.getDato().getCoeficiente()){
+                if (dato.getGrado() > inicio.getDato().getGrado()){
                     insertaInicio(dato);
                 }else{
                     insertaFinal(dato);

@@ -79,7 +79,7 @@ public abstract class Lista {
     public void imprimir(){
     Nodo actual = inicio;
         while (actual!=null){
-            System.out.print(actual.getDato()+ " -> ");
+            System.out.print(actual.getDato() + "+");
             actual = actual.getSiguiente();
         }
     }
